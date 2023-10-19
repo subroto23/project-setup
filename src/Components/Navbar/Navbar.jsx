@@ -9,8 +9,11 @@ const Navbar = () => {
       <NavLink className="mx-5 btn btn-ghost normal-case" to="">
         About
       </NavLink>
-      <NavLink className="mx-5 btn btn-ghost normal-case" to="">
+      <NavLink to="/registation" className="mx-5 btn btn-ghost normal-case">
         Registation
+      </NavLink>
+      <NavLink to="/login" className="mx-5 btn btn-ghost normal-case">
+        Log in
       </NavLink>
     </>
   );
