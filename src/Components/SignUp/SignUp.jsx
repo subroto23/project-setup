@@ -1,14 +1,53 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AiFillGoogleCircle } from "react-icons/ai";
 
 const SignUp = () => {
-  const handleSubmit = (e) => {
+  const { handleRegistation, handleUpdateUser, handleGLogin } =
+    useContext(AuthContext);
+  const [success, setSuccess] = useState("");
+  const [errmessage, setErrMessage] = useState("");
+  const navigate = useNavigate();
+
+  //submit Function
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSuccess("");
+    setErrMessage("");
     const form = new FormData(e.currentTarget);
     const name = form.get("fullname");
     const email = form.get("email");
     const password = form.get("password");
     const photoUrl = form.get("photoUrl");
-    console.log(name, email, password, photoUrl);
+
+    //Password Validation Checks
+    if (password.length < 6) {
+      setErrMessage("Password must be at least 6 characters long");
+      return;
+    }
+    if (password.search(/[A-Z]/) < 0) {
+      setErrMessage("Password must contain an uppercase");
+      return;
+    }
+    if (password.search(/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/) < 0) {
+      setErrMessage("Password must contain an Special Character");
+      return;
+    }
+    const userData = { name, email, password, photoUrl };
+    //
+    await handleRegistation(userData)
+      .then(() => {
+        setSuccess("Successfully created Account");
+        e.target.reset();
+        navigate("/");
+      })
+      .catch((err) => setErrMessage(err));
+
+    //
+    await handleUpdateUser(name, photoUrl)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
   return (
     <div className="bg-grey-lighter flex flex-col">
@@ -23,6 +62,7 @@ const SignUp = () => {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="fullname"
                 placeholder="Full Name"
+                required
               />
             </div>
             <div>
@@ -32,6 +72,7 @@ const SignUp = () => {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="email"
                 placeholder="Email"
+                required
               />
             </div>
 
@@ -42,6 +83,7 @@ const SignUp = () => {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="password"
                 placeholder="Password"
+                required
               />
             </div>
             <div>
@@ -51,6 +93,7 @@ const SignUp = () => {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="photoUrl"
                 placeholder="Photo Url"
+                required
               />
             </div>
             <input
@@ -59,6 +102,24 @@ const SignUp = () => {
               value="Create Account"
             />
           </form>
+          <div className="text-center text-sm  mt-4">
+            {errmessage && <span className="text-red-500">{errmessage}</span>}
+            {success && <span className="text-green-500">{success}</span>}
+          </div>
+
+          {/*  Google Login */}
+          <div className="mt-5">
+            <button
+              type="submit"
+              onClick={() => handleGLogin()}
+              className="flex w-1/2 mx-auto justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              <span>
+                <AiFillGoogleCircle className="text-xl text-green mr-2" />
+              </span>
+              Continue with Google
+            </button>
+          </div>
           <div className="text-center text-sm text-grey-dark mt-4">
             By signing up, you agree to the
             <Link

@@ -1,12 +1,31 @@
-import { Link } from "react-router-dom";
-
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AiFillGoogleCircle } from "react-icons/ai";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 const Login = () => {
-  const handleSubmit = (e) => {
+  const { handleLogin, handleGLogin } = useContext(AuthContext);
+  const [errorLogin, setErrorLogIn] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorLogIn("");
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    console.log(email, password);
+
+    //handle Log In
+    await handleLogin({ email, password })
+      .then(() => {
+        e.target.reset();
+        Swal.fire("Successfully Logged In");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch(() => {
+        setErrorLogIn("Your email and Passwords not match");
+      });
   };
   return (
     <div className="bg-grey-lighter flex flex-col">
@@ -21,6 +40,7 @@ const Login = () => {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="email"
                 placeholder="Email"
+                required
               />
             </div>
 
@@ -31,6 +51,7 @@ const Login = () => {
                 className="block border border-grey-light w-full p-3 rounded mb-4"
                 name="password"
                 placeholder="Password"
+                required
               />
             </div>
 
@@ -40,8 +61,23 @@ const Login = () => {
               value="Log In"
             />
           </form>
+          <div className="text-center text-sm  mt-4">
+            {errorLogin && <span className="text-red-500">{errorLogin}</span>}
+          </div>
         </div>
-
+        {/*  Google Login */}
+        <div className="mt-5">
+          <button
+            type="submit"
+            onClick={() => handleGLogin()}
+            className="flex w-full justify-center rounded-md bg-green-500 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            <span>
+              <AiFillGoogleCircle className="text-xl text-green mr-2" />
+            </span>
+            Continue with Google
+          </button>
+        </div>
         <div className="text-grey-dark mt-6">
           You have no account? please
           <Link
