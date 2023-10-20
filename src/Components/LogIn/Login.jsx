@@ -20,7 +20,7 @@ const Login = () => {
     await handleLogin({ email, password })
       .then(() => {
         e.target.reset();
-        Swal.fire("Successfully Logged In");
+        Swal.fire("SuccessFully login!");
         navigate(location?.state ? location.state : "/");
       })
       .catch(() => {

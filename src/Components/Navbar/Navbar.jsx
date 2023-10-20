@@ -6,8 +6,11 @@ const Navbar = () => {
       <NavLink className="mx-5 btn btn-ghost normal-case" to="">
         Home
       </NavLink>
-      <NavLink className="mx-5 btn btn-ghost normal-case" to="">
-        About
+      <NavLink className="mx-5 btn btn-ghost normal-case" to="/catagory-form">
+        Add Catagory
+      </NavLink>
+      <NavLink to="/add-products" className="mx-5 btn btn-ghost normal-case">
+        Add Products
       </NavLink>
       <NavLink to="/registation" className="mx-5 btn btn-ghost normal-case">
         Registation

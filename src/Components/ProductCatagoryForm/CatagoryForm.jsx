@@ -8,14 +8,14 @@ const CatagoryForm = () => {
     const imageUrl = form.get("imageUrl");
     const catagoryDatas = { catagory, imageUrl };
     axios
-      .post("http://localhost:3000/catagory/create", catagoryDatas, {
+      .post("http://localhost:5000/catagory/create", catagoryDatas, {
         headers: {
           accept: "application/json",
           "content-type": "application/x-www-form-urlencoded",
         },
       })
       .then(() => {
-        e.target.reset();
+        e.form.reset();
       })
       .catch((err) => console.log(err));
   };

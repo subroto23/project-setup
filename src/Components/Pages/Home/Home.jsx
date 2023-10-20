@@ -1,9 +1,9 @@
-import CatagoryForm from "../../ProductCatagoryForm/CatagoryForm";
+import HomeBaner from "../../HomeBaner/HomeBaner";
 
 const Home = () => {
   return (
     <div>
-      <CatagoryForm />
+      <HomeBaner />
     </div>
   );
 };

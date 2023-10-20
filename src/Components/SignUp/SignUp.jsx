@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { AiFillGoogleCircle } from "react-icons/ai";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { handleRegistation, handleUpdateUser, handleGLogin } =
@@ -39,6 +40,7 @@ const SignUp = () => {
     await handleRegistation(userData)
       .then(() => {
         setSuccess("Successfully created Account");
+        Swal.fire("SuccessFully Registation!");
         e.target.reset();
         navigate("/");
       })

@@ -4,6 +4,8 @@ import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import SignUp from "./Components/SignUp/SignUp";
 import Login from "./Components/LogIn/Login";
 import Home from "./Components/Pages/Home/Home";
+import AddProductshtmlForm from "./Components/Products/AddProductsForm";
+import CatagoryForm from "./Components/ProductCatagoryForm/CatagoryForm";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/add-products",
+        element: <AddProductshtmlForm />,
+        loader: () => fetch("http://localhost:5000/catagory"),
+      },
+      {
+        path: "/catagory-form",
+        element: <CatagoryForm />,
       },
       {
         path: "/registation",
