@@ -4,7 +4,7 @@ const HomeBaner = () => {
   return (
     <div className="px-4 bg-green-100 py-16  md:px-24 lg:px-8 lg:py-12">
       <div className="flex flex-col items-center justify-between w-full mx-auto md:max-w-6xl  mb-10 lg:flex-row">
-        <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
+        <div data-aos="flip-left" className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
           <div className="max-w-xl mb-6">
             <div>
               <p className="inline-block text-primary px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase rounded-full bg-teal-accent-400">
@@ -43,7 +43,10 @@ const HomeBaner = () => {
             </Link>
           </div>
         </div>
-        <div className="flex items-center justify-center lg:w-1/2">
+        <div
+          data-aos="flip-left"
+          className="flex items-center justify-center lg:w-1/2"
+        >
           <div className="w-2/5">
             <img
               className="object-cover"
