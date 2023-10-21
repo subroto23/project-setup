@@ -20,7 +20,7 @@ const BrandCard = () => {
     .then((res) => {
       if (!loading) {
         const arr2Set = new Set(res.data.payload.map((obj) => obj.brand));
-        const absentObjects = catagorys.filter(
+        const absentObjects = catagorys?.filter(
           (obj) => !arr2Set.has(obj.catagory)
         );
         setEmptyProducts(absentObjects);
@@ -38,7 +38,7 @@ const BrandCard = () => {
             Brand New collection
           </h1>
           <div className="my-6  grid grid-cols-1 md:grid-cols-3  gap-6">
-            {catagorys.map((data) => {
+            {catagorys?.map((data) => {
               return (
                 <button key={data._id} className="hover:brightness-90">
                   <Link to={`/products/search/${data.catagory}`}>

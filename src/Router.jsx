@@ -7,6 +7,7 @@ import Home from "./Components/Pages/Home/Home";
 import AddProductshtmlForm from "./Components/Products/AddProductsForm";
 import CatagoryForm from "./Components/ProductCatagoryForm/CatagoryForm";
 import BrandFirstPage from "./Components/BrandFirstPage/BrandFirstPage";
+import AddSlides from "./Components/AddSlideForm/AddSlides";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
       {
         path: "/catagory-form",
         element: <CatagoryForm />,
+      },
+      {
+        path: "/slider-form",
+        element: <AddSlides />,
+        loader: () => fetch("http://localhost:5000/catagory"),
       },
       {
         path: "/registation",
