@@ -1,6 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import { BsCart2 } from "react-icons/bs";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 const Navbar = () => {
+  const { user, loading, handleLogOut } = useContext(AuthContext);
+  console.log(user);
   const navLink = (
     <>
       <NavLink className="mx-5 btn btn-ghost normal-case" to="">
@@ -17,9 +21,6 @@ const Navbar = () => {
       </NavLink>
       <NavLink to="/registation" className="mx-5 btn btn-ghost normal-case">
         Registation
-      </NavLink>
-      <NavLink to="/login" className="mx-5 btn btn-ghost normal-case">
-        Log in
       </NavLink>
     </>
   );
@@ -79,24 +80,40 @@ const Navbar = () => {
             </button>
           </div>
           {/* Profile */}
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full ">
-                <img src="https://thumbs.dreamstime.com/z/businessman-avatar-image-beard-hairstyle-male-profile-vector-illustration-178545831.jpg?w=1400" />
+
+          {loading ? null : user ? (
+            <>
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full ">
+                    <img src={user.photoURL} />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-lg w-52 bg-green-500"
+                >
+                  <li>
+                    <button>
+                      <Link>{user.displayName}</Link>
+                    </button>
+                  </li>
+                  <li>
+                    <button onClick={() => handleLogOut()}>
+                      <Link>Logout</Link>
+                    </button>
+                  </li>
+                </ul>
               </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-lg w-52 bg-green-500"
-            >
-              <li>
-                <Link className="justify-between">Profile</Link>
-              </li>
-              <li>
-                <Link>Logout</Link>
-              </li>
-            </ul>
-          </div>
+            </>
+          ) : (
+            <div>
+              {" "}
+              <NavLink to="/login" className="mx-5 btn btn-ghost normal-case">
+                Log in
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </>

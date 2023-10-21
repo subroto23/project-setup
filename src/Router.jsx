@@ -11,6 +11,7 @@ import AddSlides from "./Components/AddSlideForm/AddSlides";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import Cart from "./Components/Cart/Cart";
 import ProductUpdateForm from "./Components/ProductUpdate/ProductUpdate";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,31 +25,55 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-products",
-        element: <AddProductshtmlForm />,
+        element: (
+          <PrivateRoute>
+            <AddProductshtmlForm />
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/catagory"),
       },
       {
         path: "/catagory-form",
-        element: <CatagoryForm />,
+        element: (
+          <PrivateRoute>
+            <CatagoryForm />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/slider-form",
-        element: <AddSlides />,
+        element: (
+          <PrivateRoute>
+            <AddSlides />
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/catagory"),
       },
       {
         path: "/details/:id",
-        element: <ProductDetails />,
+        element: (
+          <PrivateRoute>
+            <ProductDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/update/:id",
-        element: <ProductUpdateForm />,
+        element: (
+          <PrivateRoute>
+            <ProductUpdateForm />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.id}`),
       },
