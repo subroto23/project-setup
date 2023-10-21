@@ -8,12 +8,16 @@ const CatagoryForm = () => {
     const imageUrl = form.get("imageUrl");
     const catagoryDatas = { catagory, imageUrl };
     axios
-      .post("http://localhost:5000/catagory/create", catagoryDatas, {
-        headers: {
-          accept: "application/json",
-          "content-type": "application/x-www-form-urlencoded",
-        },
-      })
+      .post(
+        " https://server-1gapz0wlu-subroto23.vercel.app/catagory/create",
+        catagoryDatas,
+        {
+          headers: {
+            accept: "application/json",
+            "content-type": "application/x-www-form-urlencoded",
+          },
+        }
+      )
       .then(() => {
         e.form.reset();
       })

@@ -25,12 +25,16 @@ const AddProductshtmlForm = () => {
       shortDetails,
     };
     axios
-      .post("http://localhost:5000/products/create", productsData, {
-        headers: {
-          accept: "application/json",
-          "content-type": "application/x-www-form-urlencoded",
-        },
-      })
+      .post(
+        " https://server-1gapz0wlu-subroto23.vercel.app/products/create",
+        productsData,
+        {
+          headers: {
+            accept: "application/json",
+            "content-type": "application/x-www-form-urlencoded",
+          },
+        }
+      )
       .then(() => {
         Swal.fire("SuccessFully Created!");
         e.target.reset();

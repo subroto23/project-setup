@@ -9,14 +9,14 @@ const BrandCard = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/catagory")
+      .get(" https://server-1gapz0wlu-subroto23.vercel.app/catagory")
       .then((res) => {
         setCatagory(res.data.payload), setLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
   axios
-    .get(`http://localhost:5000/products`)
+    .get(` https://server-1gapz0wlu-subroto23.vercel.app/products`)
     .then((res) => {
       if (!loading) {
         const arr2Set = new Set(res.data.payload.map((obj) => obj.brand));

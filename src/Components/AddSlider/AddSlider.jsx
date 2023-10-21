@@ -18,7 +18,9 @@ const AddSlider = ({ slidesShow }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5000/slider/${slidesShow}`)
+      .get(
+        ` https://server-1gapz0wlu-subroto23.vercel.app/slider/${slidesShow}`
+      )
       .then((res) => {
         setSlidesDatas(res.data.payload), setLoading(false);
       })

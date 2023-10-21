@@ -9,12 +9,16 @@ const ProductDetails = () => {
   const productData = { name, brand, imageUrl, price, type };
   const handleAddProduct = () => {
     axios
-      .post("http://localhost:5000/store/create", productData, {
-        headers: {
-          accept: "application/json",
-          "content-type": "application/x-www-form-urlencoded",
-        },
-      })
+      .post(
+        " https://server-1gapz0wlu-subroto23.vercel.app/store/create",
+        productData,
+        {
+          headers: {
+            accept: "application/json",
+            "content-type": "application/x-www-form-urlencoded",
+          },
+        }
+      )
       .then(() => {
         Swal.fire("SuccessFully Add Cart!");
       })

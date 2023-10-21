@@ -11,12 +11,16 @@ const AddSlides = () => {
     const imageUrl = form.get("imageUrl");
     const sliderDatas = { catagory: selectOption, imageUrl };
     axios
-      .post("http://localhost:5000/slider/create", sliderDatas, {
-        headers: {
-          accept: "application/json",
-          "content-type": "application/x-www-form-urlencoded",
-        },
-      })
+      .post(
+        " https://server-1gapz0wlu-subroto23.vercel.app/slider/create",
+        sliderDatas,
+        {
+          headers: {
+            accept: "application/json",
+            "content-type": "application/x-www-form-urlencoded",
+          },
+        }
+      )
       .then(() => {
         Swal.fire("Successfully added");
         e.target.reset();

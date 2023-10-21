@@ -30,7 +30,8 @@ const router = createBrowserRouter([
             <AddProductshtmlForm />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/catagory"),
+        loader: () =>
+          fetch(" https://server-1gapz0wlu-subroto23.vercel.app/catagory"),
       },
       {
         path: "/catagory-form",
@@ -47,7 +48,8 @@ const router = createBrowserRouter([
             <AddSlides />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/catagory"),
+        loader: () =>
+          fetch(" https://server-1gapz0wlu-subroto23.vercel.app/catagory"),
       },
       {
         path: "/details/:id",
@@ -57,7 +59,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            ` https://server-1gapz0wlu-subroto23.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/cart",
@@ -75,7 +79,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            ` https://server-1gapz0wlu-subroto23.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/registation",
@@ -90,7 +96,7 @@ const router = createBrowserRouter([
         element: <BrandFirstPage />,
         loader: async ({ params }) =>
           await fetch(
-            `http://localhost:5000/products/search/${params.catagory}`
+            ` https://server-1gapz0wlu-subroto23.vercel.app/products/search/${params.catagory}`
           ),
       },
     ],

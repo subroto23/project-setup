@@ -24,7 +24,7 @@ const ProductUpdateForm = () => {
     };
     axios
       .put(
-        `http://localhost:5000/products/update/${loader.payload._id}`,
+        ` https://server-1gapz0wlu-subroto23.vercel.app/products/update/${loader.payload._id}`,
         productsData,
         {
           headers: {

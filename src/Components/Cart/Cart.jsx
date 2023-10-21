@@ -8,7 +8,7 @@ const Cart = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5000/store")
+      .get(" https://server-1gapz0wlu-subroto23.vercel.app/store")
       .then((res) => {
         setProducts(res.data.payload), setLoading(false);
       })
@@ -27,7 +27,9 @@ const Cart = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/store/search/${id}`)
+          .delete(
+            ` https://server-1gapz0wlu-subroto23.vercel.app/store/search/${id}`
+          )
           .then(() => {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
             const remaning = product.filter((data) => data._id !== id);
