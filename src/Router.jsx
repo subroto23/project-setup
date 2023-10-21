@@ -10,6 +10,7 @@ import BrandFirstPage from "./Components/BrandFirstPage/BrandFirstPage";
 import AddSlides from "./Components/AddSlideForm/AddSlides";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import Cart from "./Components/Cart/Cart";
+import ProductUpdateForm from "./Components/ProductUpdate/ProductUpdate";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,12 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/update/:id",
+        element: <ProductUpdateForm />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "/registation",

@@ -94,7 +94,7 @@ const BrandFirstPage = () => {
                   <div>
                     <button>
                       <Link
-                        href="#"
+                        to={`/update/${data._id}`}
                         className="flex items-center justify-center rounded-md bg-green-500 hover:bg-green-800 px-4 py-1 text-center text-sm font-medium text-white  focus:outline-none focus:ring-4 focus:ring-blue-300"
                       >
                         Update

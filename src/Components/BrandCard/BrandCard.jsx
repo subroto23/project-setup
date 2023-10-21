@@ -49,7 +49,8 @@ const BrandCard = () => {
                           src={data?.imageUrl}
                           alt="Random image"
                         />
-                        {emptyProduct
+                        {emptyProduct &&
+                        emptyProduct
                           .map((obj) => obj.catagory)
                           .includes(data.catagory) ? (
                           <span className="absolute top-16 -rotate-45 left-0  rounded-full bg-black px-2 text-center text-sm font-medium text-white">
