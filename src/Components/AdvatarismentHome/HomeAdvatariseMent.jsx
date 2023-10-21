@@ -23,8 +23,8 @@ const HomeAdvatariseMent = () => {
           className="flex flex-col justify-center p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2"
         >
           <div>
-            <p className="inline-block text-green-500 px-3 py-px mb-4 text-xs font-semibold tracking-wider  uppercase rounded-full bg-teal-accent-400">
-              Brand new
+            <p className="inline-block animate-pulse text-green-500 px-3 py-px mb-4 text-xs font-semibold tracking-wider  uppercase rounded-full bg-teal-accent-400">
+              Up Comming
             </p>
           </div>
           <h5 className="mb-3 text-3xl font-extrabold leading-none sm:text-4xl">
@@ -37,16 +37,10 @@ const HomeAdvatariseMent = () => {
             WQHD OLED), IP67, MIL-STD 810
           </p>
           <div className="flex items-center">
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-            >
-              Get started
-            </button>
             <Link
               to="/"
               aria-label=""
-              className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+              className="inline-flex text-green-500 hover:text-green-800 items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn More
               <svg

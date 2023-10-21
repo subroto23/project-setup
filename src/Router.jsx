@@ -6,6 +6,7 @@ import Login from "./Components/LogIn/Login";
 import Home from "./Components/Pages/Home/Home";
 import AddProductshtmlForm from "./Components/Products/AddProductsForm";
 import CatagoryForm from "./Components/ProductCatagoryForm/CatagoryForm";
+import BrandFirstPage from "./Components/BrandFirstPage/BrandFirstPage";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +35,15 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      {
+        path: "/products/search/:catagory",
+        element: <BrandFirstPage />,
+        loader: async ({ params }) =>
+          await fetch(
+            `http://localhost:5000/products/search/${params.catagory}`
+          ),
+      },
     ],
   },
 ]);
-
 export default router;

@@ -26,7 +26,7 @@ const BrandCard = () => {
           <div className="my-6  grid grid-cols-1 md:grid-cols-3  gap-6">
             {catagorys.map((data) => (
               <button key={data._id} className="hover:brightness-90">
-                <Link to="">
+                <Link to={`/products/search/${data.catagory}`}>
                   <div className="relative max-w-xl mx-auto">
                     <img
                       className="h-64 w-fullobject-cover rounded-md"
