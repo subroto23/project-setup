@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import Swal from "sweetalert2";
+import Swal from "sweetalert2/src/sweetalert2.js";
 
 const AddProductshtmlForm = () => {
   const loader = useLoaderData();

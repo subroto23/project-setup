@@ -82,20 +82,24 @@ const BrandFirstPage = () => {
                 </div>
                 <div className="flex absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 gap-6">
                   <div>
-                    <Link
-                      href="#"
-                      className="flex items-center justify-center rounded-md bg-green-500 hover:bg-green-800 px-4 py-1 text-center text-sm font-medium text-white  focus:outline-none focus:ring-4 focus:ring-blue-300"
-                    >
-                      Details
-                    </Link>
+                    <button>
+                      <Link
+                        to={`/details/${data._id}`}
+                        className="flex items-center justify-center rounded-md bg-green-500 hover:bg-green-800 px-4 py-1 text-center text-sm font-medium text-white  focus:outline-none focus:ring-4 focus:ring-blue-300"
+                      >
+                        Details
+                      </Link>
+                    </button>
                   </div>
                   <div>
-                    <Link
-                      href="#"
-                      className="flex items-center justify-center rounded-md bg-green-500 hover:bg-green-800 px-4 py-1 text-center text-sm font-medium text-white  focus:outline-none focus:ring-4 focus:ring-blue-300"
-                    >
-                      Update
-                    </Link>
+                    <button>
+                      <Link
+                        href="#"
+                        className="flex items-center justify-center rounded-md bg-green-500 hover:bg-green-800 px-4 py-1 text-center text-sm font-medium text-white  focus:outline-none focus:ring-4 focus:ring-blue-300"
+                      >
+                        Update
+                      </Link>
+                    </button>
                   </div>
                 </div>
               </div>

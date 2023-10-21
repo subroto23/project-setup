@@ -8,6 +8,8 @@ import AddProductshtmlForm from "./Components/Products/AddProductsForm";
 import CatagoryForm from "./Components/ProductCatagoryForm/CatagoryForm";
 import BrandFirstPage from "./Components/BrandFirstPage/BrandFirstPage";
 import AddSlides from "./Components/AddSlideForm/AddSlides";
+import ProductDetails from "./Components/ProductDetails/ProductDetails";
+import Cart from "./Components/Cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,16 @@ const router = createBrowserRouter([
         path: "/slider-form",
         element: <AddSlides />,
         loader: () => fetch("http://localhost:5000/catagory"),
+      },
+      {
+        path: "/details/:id",
+        element: <ProductDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/registation",

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-
+import Swal from "sweetalert2/src/sweetalert2.js";
 const AddSlides = () => {
   const loader = useLoaderData();
   const [selectOption, setSelectOption] = useState("");
@@ -18,6 +18,7 @@ const AddSlides = () => {
         },
       })
       .then(() => {
+        Swal.fire("Successfully added");
         e.target.reset();
       })
       .catch((err) => console.log(err));

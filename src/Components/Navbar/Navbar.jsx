@@ -73,8 +73,10 @@ const Navbar = () => {
           {/* Cart */}
           <div className="indicator">
             <button>
-              <BsCart2 className="w-6 h-6 cursor-pointer" />
-              <span className="badge badge-sm indicator-item">8</span>
+              <Link to="cart">
+                <BsCart2 className="w-6 h-6 cursor-pointer" />
+                <span className="badge badge-sm indicator-item">8</span>
+              </Link>
             </button>
           </div>
           {/* Profile */}

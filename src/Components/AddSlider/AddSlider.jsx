@@ -12,7 +12,6 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
 const AddSlider = ({ slidesShow }) => {
   const [slidesDatas, setSlidesDatas] = useState(null);
   const [loading, setLoading] = useState(true);
