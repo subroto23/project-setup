@@ -8,7 +8,7 @@ const HomeBaner = () => {
           <div className="max-w-xl mb-6">
             <div>
               <p className="inline-block text-primary px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase rounded-full bg-teal-accent-400">
-                Brand new
+                Brand new Website
               </p>
             </div>
             <h2 className="max-w-lg text-primary mb-6 font-sans text-3xl font-bold tracking-tight  sm:text-4xl sm:leading-none">
