@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../FirebaseConfig/FirebaseConfig";
+import UseAxiosPublic from "../../Hookes/UseAxiosPublic";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -40,13 +41,32 @@ const AuthProvider = ({ children }) => {
 
   //Auth State Changes
   useEffect(() => {
+    const axiosPublic = UseAxiosPublic();
     const unSubscribe = onAuthStateChanged(
       auth,
-      (currentUser) => {
+      async (currentUser) => {
         if (currentUser) {
           setUser(currentUser);
+          // Change korte hobe
           setLoading(false);
+          //
+          await axiosPublic
+            .post("/api/users", { email: currentUser?.email })
+            .then(async (res) => {
+              // Token Send TO the Localhost
+              if (res?.data?.token) {
+                localStorage.setItem("access_token", res?.data?.token);
+                setLoading(false);
+              }
+              //Post User
+              await axiosPublic.post("/api/users/create/user", {
+                email: currentUser?.email,
+                name: currentUser?.displayName,
+              });
+              setLoading(false);
+            });
         } else {
+          localStorage.removeItem("access_token");
           setUser(null);
           setLoading(false);
         }
