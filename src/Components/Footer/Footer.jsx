@@ -17,16 +17,10 @@ const Footer = () => {
               className="h-6 w-6"
             />
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-200 uppercase">
-              BrandNew
+              taskmanagement
             </span>
           </Link>
-          <div className="mt-6 lg:max-w-sm">
-            <p className="text-sm  text-white">
-              Then at the beginning of the 20th century came the somewhat
-              smarter so-called “bar phones” or “feature phones.” They are also
-              called as “button phones” in Bangladesh.
-            </p>
-          </div>
+          <div className="mt-6 lg:max-w-sm"></div>
         </div>
         <div className="space-y-2 text-sm">
           <p className="text-base font-bold tracking-wide text-gray-300">
@@ -114,7 +108,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex max-w-6xl mx-auto flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
-        <p className="text-sm text-gray-200">© Copyright 2023 BrandNew</p>
+        <p className="text-sm text-gray-200">© Copyright 2023 taskmanagement</p>
         <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
           <li>
             <Link

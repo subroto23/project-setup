@@ -1,5 +1,5 @@
 {
-  "name": "brandnewa10",
+  "name": "taskmanagementa10",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "axios": "^1.5.1",
+    "axios": "^1.6.2",
     "cors": "^2.8.5",
     "firebase": "^10.5.0",
     "localforage": "^1.10.0",
@@ -21,7 +21,7 @@
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.17.0",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.7.32",
+    "sweetalert2": "^11.10.1",
     "swiper": "^10.3.1"
   },
   "devDependencies": {

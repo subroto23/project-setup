@@ -1,23 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
-import { BsCart2 } from "react-icons/bs";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const Navbar = () => {
   const { user, loading, handleLogOut } = useContext(AuthContext);
-  console.log(user);
   const navLink = (
     <>
-      <NavLink className="mx-5 btn btn-ghost normal-case" to="">
+      <NavLink className="mx-5 btn btn-ghost normal-case" to="/">
         Home
-      </NavLink>
-      <NavLink className="mx-5 btn btn-ghost normal-case" to="/catagory-form">
-        Add Catagory
-      </NavLink>
-      <NavLink className="mx-5 btn btn-ghost normal-case" to="/slider-form">
-        Add Slides
-      </NavLink>
-      <NavLink to="/add-products" className="mx-5 btn btn-ghost normal-case">
-        Add Products
       </NavLink>
       <NavLink to="/registation" className="mx-5 btn btn-ghost normal-case">
         Registation
@@ -62,7 +51,7 @@ const Navbar = () => {
                 src="https://i.ibb.co/kg6zdzt/png-clipart-computer-icons-farm-garden-logo-farming-technology-food-leaf.png"
                 alt=""
               />
-              BrandNew
+              taskmanagement
             </NavLink>
           </div>
 
@@ -71,22 +60,13 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{navLink}</ul>
           </div>
 
-          {/* Cart */}
-          <div className="indicator">
-            <button>
-              <Link to="cart">
-                <BsCart2 className="w-6 h-6 cursor-pointer" />
-              </Link>
-            </button>
-          </div>
           {/* Profile */}
-
-          {loading ? null : user ? (
+          {loading || user ? (
             <>
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full ">
-                    <img src={user.photoURL} />
+                    <img src={user?.photoURL} />
                   </div>
                 </label>
                 <ul
@@ -95,7 +75,7 @@ const Navbar = () => {
                 >
                   <li>
                     <button>
-                      <Link>{user.displayName}</Link>
+                      <Link>{user?.displayName}</Link>
                     </button>
                   </li>
                   <li>
