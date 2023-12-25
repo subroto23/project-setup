@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         element: <UpdateTask />,
         loader: ({ params }) =>
           fetch(
-            `https://task-management-sigma-eosin.vercel.app/api/tasks/${params.id}`
+            `https://task-management-sigma-eosin.vercel.app/api/tasks/task/${params.id}`
           ),
       },
     ],
