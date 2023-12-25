@@ -3,12 +3,48 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const Navbar = () => {
   const { user, loading, handleLogOut } = useContext(AuthContext);
+  //Navlik Active Class
+  const activeRouteStyle = ({ isActive }) => {
+    return {
+      color: isActive ? "#aFCaaF" : "",
+      bold: isActive ? "bold" : "",
+    };
+  };
   const navLink = (
     <>
-      <NavLink className="mx-5 btn btn-ghost normal-case" to="/">
+      <NavLink
+        style={activeRouteStyle}
+        className="mx-5 btn btn-ghost normal-case"
+        to="/"
+      >
         Home
       </NavLink>
-      <NavLink to="/registation" className="mx-5 btn btn-ghost normal-case">
+      <NavLink
+        style={activeRouteStyle}
+        to="/info"
+        className="mx-5 btn btn-ghost normal-case"
+      >
+        Info
+      </NavLink>
+      <NavLink
+        style={activeRouteStyle}
+        to="/contact"
+        className="mx-5 btn btn-ghost normal-case"
+      >
+        Contact
+      </NavLink>
+      <NavLink
+        style={activeRouteStyle}
+        to="/about"
+        className="mx-5 btn btn-ghost normal-case"
+      >
+        RAbout
+      </NavLink>
+      <NavLink
+        style={activeRouteStyle}
+        to="/registation"
+        className="mx-5 btn btn-ghost normal-case"
+      >
         Registation
       </NavLink>
     </>
@@ -16,7 +52,7 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-green-500 text-white">
-        <div className=" navbar flex justify-between items-center max-w-6xl mx-auto">
+        <div className="navbar flex justify-between items-center max-w-6xl mx-auto">
           {/* Nav Logo */}
           <div>
             <div className="dropdown ">
