@@ -26,7 +26,7 @@ const HomeBaner = () => {
                     to="/dashboard"
                     className="bg-green-500 px-8 py-4 rounded-lg text-white hover:bg-green-600"
                   >
-                    Explore
+                    Let’s Explore
                   </Link>
                 </button>
               </div>

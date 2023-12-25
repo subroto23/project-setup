@@ -21,7 +21,7 @@ const Login = () => {
       .then(() => {
         e.target.reset();
         Swal.fire("SuccessFully login!");
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location?.state : "/");
       })
       .catch(() => {
         setErrorLogIn("Your email and Passwords not match");

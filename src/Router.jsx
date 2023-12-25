@@ -9,6 +9,9 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import Info from "./Components/Pages/Info/Info";
 import Contact from "./Components/Pages/Contact/Contact";
 import About from "./Components/Pages/About/About";
+import CreateTask from "./Components/CreateTask/CreateTask";
+import UsersHomePage from "./Pages/UsersHomePage/UsersHomePage";
+import UpdateTask from "./Components/UpdateTask/UpdateTask";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,7 +53,22 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     errorElement: <ErrorPage></ErrorPage>,
-    children: [],
+    children: [
+      {
+        path: "/dashboard",
+        element: <UsersHomePage />,
+      },
+      {
+        path: "create/task",
+        element: <CreateTask />,
+      },
+      {
+        path: "task/edit/:id",
+        element: <UpdateTask />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/tasks/${params.id}`),
+      },
+    ],
   },
 ]);
 export default router;

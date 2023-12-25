@@ -47,9 +47,6 @@ const AuthProvider = ({ children }) => {
       async (currentUser) => {
         if (currentUser) {
           setUser(currentUser);
-          // Change korte hobe
-          setLoading(false);
-          //
           await axiosPublic
             .post("/api/users", { email: currentUser?.email })
             .then(async (res) => {
@@ -58,11 +55,6 @@ const AuthProvider = ({ children }) => {
                 localStorage.setItem("access_token", res?.data?.token);
                 setLoading(false);
               }
-              //Post User
-              await axiosPublic.post("/api/users/create/user", {
-                email: currentUser?.email,
-                name: currentUser?.displayName,
-              });
               setLoading(false);
             });
         } else {

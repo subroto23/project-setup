@@ -11,16 +11,16 @@ const UsersDashboard = () => {
     };
   };
   return (
-    <div className="max-w-screen-xl mx-auto h-fit md:border-r md:border-t md:border-green-600 ">
+    <div className="max-w-screen-xl mx-auto h-fit md:border-r-2 md:border-t md:border-green-600 ">
       <div className="flex md:flex-row flex-col">
-        <div className="md:w-1/4 w-full">
+        <div className="md:w-1/5 w-full">
           <div className="border-r shadow-lg bg-[#071e34]  h-full">
             <div className="flex-col min-h-screen px-2  flex flex-wrap items-center justify-between w-full mx-auto overflow-y-auto overflow-x-hidden">
               <div className="flex h-auto text-white flex-col  opacity-100 relative mt-4 overflow-y-auto overflow-x-hidden  items-center flex-1 rounded w-full">
                 <img
                   src={user?.photoURL}
                   alt=""
-                  className="rounded-full w-36 h-36 mt-8 border-4 mb-6"
+                  className="rounded-full w-24 h-24 mt-8 border-4 mb-6"
                 />
                 <div className="md:flex-col md:min-w-full flex flex-col md:justify-center md:items-center list-none mb-6">
                   <hr className="my-4 md:min-w-full" />
@@ -53,13 +53,22 @@ const UsersDashboard = () => {
                         Create tasks
                       </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                       <NavLink
                         style={activeRouteStyle}
                         to="/dashboard/previous/task"
                         className="pl-3 hover:text-green-600 text-md hover:font-bold"
                       >
                         Previous task
+                      </NavLink>
+                    </li> */}
+                    <li>
+                      <NavLink
+                        to="/dashboard"
+                        className="pl-3 hover:text-green-600 text-md flex items-center hover:font-bold"
+                      >
+                        <IoMdArrowRoundBack />{" "}
+                        <span className="ml-2">Back</span>
                       </NavLink>
                     </li>
                   </ul>
