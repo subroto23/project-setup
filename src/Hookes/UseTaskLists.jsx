@@ -13,7 +13,7 @@ const UseTaskLists = () => {
     queryKey: ["taskListsDatas"],
     queryFn: () => {
       const res = AxiosSecure.get(`/api/tasks?email=${user?.email}`).then(
-        (res) => res.data
+        (res) => res?.data
       );
       return res;
     },

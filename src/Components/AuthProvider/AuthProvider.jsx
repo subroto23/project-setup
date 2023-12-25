@@ -48,7 +48,9 @@ const AuthProvider = ({ children }) => {
         if (currentUser) {
           setUser(currentUser);
           await axiosPublic
-            .post("/api/users", { email: currentUser?.email })
+            .post("/api/users", {
+              email: currentUser?.email,
+            })
             .then(async (res) => {
               // Token Send TO the Localhost
               if (res?.data?.token) {

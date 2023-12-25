@@ -9,6 +9,7 @@ import Swal from "sweetalert2/src/sweetalert2.js";
 
 const Todolists = () => {
   const [taskDatas, isPending, refetch] = UseTaskLists();
+  console.log("TaksDatas", taskDatas);
   const taskDatasOngoing = taskDatas.filter(
     (data) => data?.status === "Ongoing"
   );
