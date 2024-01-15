@@ -40,7 +40,7 @@ const UsersDashboard = () => {
                   </ul>
                   <hr className="my-4 md:min-w-full" />
                   <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-2 no-underline md:pl-6">
-                    Task Book
+                    Link Info
                   </h6>
                   {/* className="text-xs uppercase py-3 font-bold block text-blueGray-800 hover:text-blueGray-500" */}
                   <ul className="text-md my-4 px-4 space-y-3">
@@ -50,18 +50,18 @@ const UsersDashboard = () => {
                         to="/dashboard/create/task"
                         className="pl-3 hover:text-green-600 text-md hover:font-bold"
                       >
-                        Create tasks
+                        Link-1
                       </NavLink>
                     </li>
-                    {/* <li>
+                    <li>
                       <NavLink
                         style={activeRouteStyle}
                         to="/dashboard/previous/task"
                         className="pl-3 hover:text-green-600 text-md hover:font-bold"
                       >
-                        Previous task
+                        Link-2
                       </NavLink>
-                    </li> */}
+                    </li>
                     <li>
                       <NavLink
                         to="/dashboard"

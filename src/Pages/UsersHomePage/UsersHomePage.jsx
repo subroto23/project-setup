@@ -1,11 +1,5 @@
-import Todolists from "../../Components/TodoLists/Todolists";
-
 const UsersHomePage = () => {
-  return (
-    <div>
-      <Todolists />
-    </div>
-  );
+  return <div>User Home Page</div>;
 };
 
 export default UsersHomePage;
